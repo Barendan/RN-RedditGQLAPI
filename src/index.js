@@ -38,6 +38,7 @@ const schema = makeExecutableSchema({
 
 const apolloServer = new ApolloServer({
   schema,
+  playground: true,
   context: (request) => {
     return {
       ...request,
