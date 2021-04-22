@@ -1,7 +1,9 @@
 {
   "development": {
     "database": "reddit_api_development",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "username": "postgres",
+    "password": "$%^justletgo"
   },
   "test": {
     "database": "reddit_api_test",

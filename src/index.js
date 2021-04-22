@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const resolvers = require("../resolvers");
 const { pubSub } = require("./pubSub");
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || "4000";
 
 const typeDefs = gql`
   type Post {
@@ -61,7 +61,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 server.listen({ port }, () => {
-  console.log("Server is running at localhost:4000");
+  console.log(`Server is running at localhost:${port}`);
   new SubscriptionServer(
     {
       schema,
