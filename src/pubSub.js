@@ -1,4 +1,4 @@
-const { PostgresPubSub } = require('graphql-postgres-subscriptios');
+const { PostgresPubSub } = require('graphql-postgres-subscriptions');
 const { Client } = require('pg');
 
 const DATABASE_URL = process.env.DATABASE_URL || 'reddit_api_development';
