@@ -19,6 +19,7 @@ const editPost = async (_, { id, title, link, imageUrl }) => {
   );
   if (updated) {
     const updatedPost = await Posts.findOne({ where: { id: id } });
+    pubSub.publish("postEdited", { postEdited: updatedPost });
     return updatedPost;
   }
   throw new Error("Post not updated");
@@ -29,9 +30,10 @@ const deletePost = async (_, { id }) => {
     where: { id: id },
   });
   if (deleted) {
+    pubSub.publish("postDeleted", { postDeleted: id });
     return id;
   }
-  throw new Error("Post not deleted");
+  return new Error("Post not deleted");
 };
 
 module.exports = {

@@ -1,7 +1,5 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "$%^justletgo",
     "database": "reddit_api_development",
     "dialect": "postgres"
   },

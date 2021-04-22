@@ -28,6 +28,8 @@ const typeDefs = gql`
   }
   type Subscription {
     postAdded: Post
+    postEdited: Post
+    postDeleted: ID
   }
 `;
 
@@ -38,12 +40,15 @@ const schema = makeExecutableSchema({
 
 const apolloServer = new ApolloServer({
   schema,
-  playground: true,
   context: (request) => {
     return {
       ...request,
       pubSub,
     };
+  },
+  introspection: true,
+  playground: {
+    endpoint: "/graphql",
   },
 });
 
